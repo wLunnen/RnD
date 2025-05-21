@@ -7,8 +7,7 @@
   <meta name="description" content="Aplication form for WDI and general contact form for me." />
   <meta name="author" content="Thomas Wesley Lunnen III">
   <title>Contact/Application</title>
-  <link rel="stylesheet" href="styles/styles.css"/>
-  <link rel="stylesheet" href="styles/contact_styles.css"/>
+  <link rel="stylesheet" href="contact_styles.css">
 </head>
 <body>
   <div class="container">
@@ -44,31 +43,79 @@
         <label>Cover Letter: <input type="file" name="cover_letter" accept=".pdf,.docx" /></label>
         <label>Resume: <input type="file" name="resume" accept=".pdf,.docx" required /></label>
       </section>
-      <a href="https://calendly.com/wesley-lunnen" class="calendly-button" target="_blank">Schedule</a>
-      <a href="https://wlunnen.github.io/Co/login" class="login-button" target="_blank">Login</a>
+      <a href="https://calendly.com/wesley-lunnen" class="calendly-button">Schedule</a>
+      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> <!--modal login-->
       <button type="submit">Submit</button>
+
+      <!--modal-->
+      <div id="id01" class="modal">
+
+      <form class="modal-content animate" enctype="text/plain">
+        <div class="imgcontainer">
+          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+          <img src="img_avatar2.png" alt="Avatar" class="avatar">
+        </div>
+    
+        <div class="login_container">
+          <label for="uname"><b>Username</b></label>
+          <input type="text" placeholder="Enter Username" name="uname" required>
+    
+          <label for="psw"><b>Password</b></label>
+          <input type="password" placeholder="Enter Password" name="psw" required>
+    
+          <button type="submit">Login</button>
+          <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+          </label>
+        </div>
+    
+        <div class="container" style="background-color:#f1f1f1">
+      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
+      <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+    <!--end of modal-->
+        
+  </form>
+</div>
     </form>
   </div>
   <footer class="footer">
-    <a href="https://www.fiverr.com/wlunnen/buying?source=avatar_menu_profile">
+    <!--
+    <a href="https://www.fiverr.com/wlunnen/make-you-more-money">
       <img src="https://i.postimg.cc/CKqJ5bvX/fiverr-logo.webp" alt="Fiverr">
     </a>
-    <a href="https://www.upwork.com/nx/find-work/best-matches">
+    -->
+    <a href="https://www.upwork.com/freelancers/~01fdda4fe8d50ca363?mp_source=share">
       <img src="https://i.postimg.cc/90C8RxWw/upwork-logo.webp" alt="Upwork">
     </a>
-    <a href="https://wlunnen.github.io/WDAI/">
-      <img src="https://i.postimg.cc/q7RzjSpq/eye-logo-circle.png" alt="WDAI Portfolio">
+    <!--
+    <a href="https://www.patreon.com/Oa_Shen">
+      <img src="https://i.postimg.cc/jSMn6PZc/patreon-logo.png" alt="Patreon">
     </a>
+    -->
     <a href="https://www.linkedin.com/company/western-development-initiative/">
       <img src="https://i.postimg.cc/C1Q5d2Cm/linkedin-icon.webp" alt="LinkedIn">
     </a>
     <a href="https://linktr.ee/quarter.puerto">
       <img src="https://i.postimg.cc/brFqmSVg/linktree-logo.webp" alt="Linktree">
     </a>
-    <a href="https://patreon.com/Oa_Shen">
-      <img src="https://i.postimg.cc/WbbymzNG/patreon-logo.png" alt="Paych">
+    <a href="https://calendly.com/wesley-lunnen/consultation">
+      <img src="https://i.postimg.cc/wMR1grpb/calendly-logo.png" alt="Calendly">
     </a>
   </footer>
   <script src="script.js"></script>
+  <script>
+  // Get the modal
+  //implement hashing through enctype after form is working
+  //consider business selling sites to inmates to get support from the community for their cause 
+  var modal = document.getElementById('id01');
+  
+  // When the user clicks anywhere outside of the modal, close it
+  window.onclick = function(event) {
+      if (event.target == modal) {
+          modal.style.display = "none";
+      }
+  }
+  </script>
 </body>
 </html>
