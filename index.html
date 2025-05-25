@@ -1,121 +1,154 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <meta name="keywords" content="contact, developer, application, job, form, code challenge, essay response, submit" />
-  <meta name="description" content="Aplication form for WDI and general contact form for me." />
-  <meta name="author" content="Thomas Wesley Lunnen III">
-  <title>Contact/Application</title>
-  <link rel="stylesheet" href="contact_styles.css">
-</head>
-<body>
-  <div class="container">
-    <nav class="tabs">
-      <button data-tab="essay" class="active">Essay</button>
-      <button data-tab="code">Code</button>
-      <button data-tab="resume">Résume</button>
-    </nav>
-
-    <form id="applicationForm">
-      <section id="essay" class="tab-content active">
-        <label>1. What are your goals with software development?</label>
-        <textarea name="goals" required></textarea>
-        <label>2. How are our projects aligned with your goals?</label>
-        <textarea name="alignment" required></textarea>
-        <label>3. Why aren't you starting your own company?</label>
-        <textarea name="startup_reason"></textarea>
-        <label>4. Anything else you'd like us to know?</label>
-        <textarea name="additional_info"></textarea>
-      </section>
-
-      <section id="code" class="tab-content">
-      <label>Provide pseudocode for an easy project:</label>
-      <textarea name="pseudo_code" rows="8" placeholder="e.g. sorting function, basic math, your choice"></textarea>
-      <label>Your best attempt at implementation:</label>
-      <textarea name="sample_code" rows="8" required></textarea>
-      </section>
-
-      <section id="resume" class="tab-content">
-        <label>Name: <input type="text" name="name" required /></label>
-        <label>Email: <input type="email" name="email" placeholder="email@email.com" required /></label>
-        <label>Phone: <input type="tel" name="phone" placeholder="(xxx)-xxx-xxxx"/></label>
-        <label>Cover Letter: <input type="file" name="cover_letter" accept=".pdf,.docx" /></label>
-        <label>Resume: <input type="file" name="resume" accept=".pdf,.docx" required /></label>
-      </section>
-      <a href="https://calendly.com/wesley-lunnen" class="calendly-button">Schedule</a>
-      <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button> <!--modal login-->
-      <button type="submit">Submit</button>
-
-      <!--modal-->
-      <div id="id01" class="modal">
-
-      <form class="modal-content animate" enctype="text/plain">
-        <div class="imgcontainer">
-          <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-          <img src="img_avatar2.png" alt="Avatar" class="avatar">
-        </div>
-    
-        <div class="login_container">
-          <label for="uname"><b>Username</b></label>
-          <input type="text" placeholder="Enter Username" name="uname" required>
-    
-          <label for="psw"><b>Password</b></label>
-          <input type="password" placeholder="Enter Password" name="psw" required>
-    
-          <button type="submit">Login</button>
-          <label>
-            <input type="checkbox" checked="checked" name="remember"> Remember me
-          </label>
-        </div>
-    
-        <div class="container" style="background-color:#f1f1f1">
-      <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">Cancel</button>
-      <span class="psw">Forgot <a href="#">password?</a></span>
-    </div>
-    <!--end of modal-->
-        
-  </form>
-</div>
-    </form>
-  </div>
-  <footer class="footer">
-    <!--
-    <a href="https://www.fiverr.com/wlunnen/make-you-more-money">
-      <img src="https://i.postimg.cc/CKqJ5bvX/fiverr-logo.webp" alt="Fiverr">
-    </a>
-    -->
-    <a href="https://www.upwork.com/freelancers/~01fdda4fe8d50ca363?mp_source=share">
-      <img src="https://i.postimg.cc/90C8RxWw/upwork-logo.webp" alt="Upwork">
-    </a>
-    <!--
-    <a href="https://www.patreon.com/Oa_Shen">
-      <img src="https://i.postimg.cc/jSMn6PZc/patreon-logo.png" alt="Patreon">
-    </a>
-    -->
-    <a href="https://www.linkedin.com/company/western-development-initiative/">
-      <img src="https://i.postimg.cc/C1Q5d2Cm/linkedin-icon.webp" alt="LinkedIn">
-    </a>
-    <a href="https://linktr.ee/quarter.puerto">
-      <img src="https://i.postimg.cc/brFqmSVg/linktree-logo.webp" alt="Linktree">
-    </a>
-    <a href="https://calendly.com/wesley-lunnen/consultation">
-      <img src="https://i.postimg.cc/wMR1grpb/calendly-logo.png" alt="Calendly">
-    </a>
-  </footer>
-  <script src="script.js"></script>
-  <script>
-  // Get the modal
-  //implement hashing through enctype after form is working
-  //consider business selling sites to inmates to get support from the community for their cause 
-  var modal = document.getElementById('id01');
-  
-  // When the user clicks anywhere outside of the modal, close it
-  window.onclick = function(event) {
-      if (event.target == modal) {
-          modal.style.display = "none";
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Payment Processing | Web Development Portfolio</title>
+    <!-- If your index uses an external stylesheet, you can link it here -->
+    <!-- <link rel="stylesheet" href="styles.css" /> -->
+    <style>
+      /* Base styling matching the index page look */
+      body {
+        font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+        background: #f4f4f4;
+        color: #333;
+        margin: 0;
+        padding: 0;
       }
-  }
-  </script>
-</body>
+      header {
+        text-align: center;
+        padding: 2rem 0;
+        background: #eaeaea;
+      }
+      header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+      .container {
+        max-width: 600px;
+        margin: 2rem auto;
+        padding: 0 1rem;
+      }
+      /* Payment form styling */
+      .payment-form {
+        background: #fff;
+        padding: 2rem;
+        border-radius: 6px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+      }
+      .payment-form label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: bold;
+      }
+      .payment-form input {
+        width: 100%;
+        padding: 0.75rem;
+        margin-bottom: 1.5rem;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 1rem;
+      }
+      /* To layout card details side-by-side */
+      .card-details {
+        display: flex;
+        gap: 1rem;
+        flex-wrap: wrap;
+      }
+      .card-details > div {
+        flex: 1;
+        min-width: 140px;
+      }
+      button {
+        width: 100%;
+        padding: 1rem;
+        background: #333;
+        color: #fff;
+        border: none;
+        font-size: 1rem;
+        border-radius: 4px;
+        cursor: pointer;
+        transition: background 0.2s ease;
+      }
+      button:hover {
+        background: #555;
+      }
+      /* Optional: A subtle note to reinforce security */
+      .secure-note {
+        font-size: 0.9rem;
+        text-align: center;
+        margin-top: 1rem;
+        color: #777;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Secure Payment</h1>
+    </header>
+    <div class="container">
+      <form class="payment-form" action="/process-payment" method="POST">
+        <label for="cardholder-name">Cardholder Name</label>
+        <input
+          type="text"
+          id="cardholder-name"
+          name="cardholder-name"
+          placeholder="Full Name"
+          required
+        />
+
+        <label for="card-number">Card Number</label>
+        <input
+          type="text"
+          id="card-number"
+          name="card-number"
+          placeholder="1234 5678 9012 3456"
+          required
+          pattern="[0-9\s]{13,19}"
+        />
+
+        <div class="card-details">
+          <div>
+            <label for="expiry-date">Expiry Date</label>
+            <input
+              type="text"
+              id="expiry-date"
+              name="expiry-date"
+              placeholder="MM/YY"
+              required
+              pattern="(0[1-9]|1[0-2])\/?([0-9]{2})"
+            />
+          </div>
+          <div>
+            <label for="cvv">CVV</label>
+            <input
+              type="text"
+              id="cvv"
+              name="cvv"
+              placeholder="123"
+              required
+              pattern="[0-9]{3,4}"
+            />
+          </div>
+        </div>
+
+        <label for="amount">Payment Amount (USD)</label>
+        <input
+          type="number"
+          id="amount"
+          name="amount"
+          placeholder="e.g., 49.99"
+          required
+          min="1"
+          step="0.01"
+        />
+
+        <button type="submit">Submit Payment</button>
+
+        <p class="secure-note">
+          Your payment information is processed securely. We do not store card details.
+        </p>
+      </form>
+    </div>
+  </body>
 </html>
